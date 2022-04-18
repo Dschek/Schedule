@@ -1,18 +1,12 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.6'
+    id 'org.springframework.boot' version '2.5.5'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
 
-group = 'tydi.ru'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = "17"
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
+group = 'schedule'
+version = '1'
+sourceCompatibility = '16'
 
 repositories {
     mavenCentral()
@@ -36,9 +30,17 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     compileOnly 'org.projectlombok:lombok:1.18.20'
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
-}
 
-tasks.named('test') {
-    useJUnitPlatform()
+    //Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.security:spring-security-test'
+
+    implementation 'org.springframework.security:spring-security-core:5.5.2'
+
+    implementation 'org.springframework.security:spring-security-web:5.6.0'
+    implementation 'org.springframework.security:spring-security-config:5.6.0'
+    implementation 'org.springframework.security:spring-security-taglibs:5.6.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+
 }
-targetCompatibility = JavaVersion.VERSION_17

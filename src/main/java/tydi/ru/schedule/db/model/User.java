@@ -1,22 +1,25 @@
 package tydi.ru.schedule.db.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-@Embeddable
+@AllArgsConstructor
 @Entity
-@Table
+@Embeddable
+@Table(name="user")
 public class User {
-    private int userId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    private int id;
+    @Column(name="email")
     private String email;
+    @Column(name="password")
     private String password;
+    @Column(name="type")
     private int type;
 }

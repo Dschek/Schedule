@@ -1,21 +1,27 @@
 package tydi.ru.schedule.db.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Embeddable
+@Table(name="subject")
 public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private int id;
+    @Column(name="name")
     private String name;
-    @ManyToOne()
-    @JoinColumn (name="teacher_id")
-    private Teacher teacher;
-    @OneToMany(mappedBy="subject")
-    private List<Schedule> scheduleList;
+//    @ManyToOne()
+//    @JoinColumn (name="teacher_id")
+//    private Teacher teacher;
+//    @OneToMany(mappedBy="subject")
+//    private List<Schedule> scheduleList;
 }

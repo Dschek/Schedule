@@ -6,9 +6,9 @@ import tydi.ru.schedule.db.repo.UserDB;
 
 @Service
 public class UserService {
-    @Autowired
-    private UserDB userDB;
+    private final UserDB userDB;
 
+    @Autowired
     public UserService(UserDB userDB){
         this.userDB = userDB;
     }
