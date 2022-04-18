@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html>
 
 <head>
@@ -14,16 +15,8 @@
 </head>
 
 <body>
-<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
-    <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="projects-no-images.html">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href="hire-me.html">Hire me</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<header th:insert="blocks/header"/>
+
 <main class="page hire-me-page">
     <section class="portfolio-block hire-me">
         <div class="container">
@@ -115,14 +108,6 @@
         </div>
     </section>
 </main>
-<footer class="page-footer">
-    <div class="container">
-        <div class="social-icons"><a href="#"><i class="fab fa-github"></i></a><a href="#"><i class="icon ion-erlenmeyer-flask-bubbles"></i></a><a href="#"><i class="fas fa-cloud-download-alt"></i></a></div>
-    </div>
-</footer>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
-<script src="assets/js/script.min.js"></script>
-</body>
+<header th:insert="blocks/footer"/>
 
 </html>
