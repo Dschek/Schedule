@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Embeddable
+@Table
 public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
