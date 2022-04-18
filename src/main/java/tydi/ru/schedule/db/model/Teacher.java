@@ -19,8 +19,6 @@ public class Teacher {
     private int id;
     @Column(name = "name")
     private String name;
-//    @OneToMany(mappedBy = "teacher")
-//    private List<Subject> subjectsList;
-//    @OneToMany(mappedBy = "teacher")
-//    private List<Subject> subjectList;
+    @OneToMany(mappedBy = "teacher")
+    private List<Subject> subjectsList;
 }

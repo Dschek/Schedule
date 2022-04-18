@@ -19,9 +19,10 @@ public class Subject {
     private int id;
     @Column(name="name")
     private String name;
-//    @ManyToOne()
-//    @JoinColumn (name="teacher_id")
-//    private Teacher teacher;
-//    @OneToMany(mappedBy="subject")
-//    private List<Schedule> scheduleList;
+    @ManyToOne()
+    @JoinColumn (name="teacher_id")
+    private Teacher teacher;
+    @OneToMany(mappedBy="subject")
+    private List<Schedule> scheduleList;
+
 }

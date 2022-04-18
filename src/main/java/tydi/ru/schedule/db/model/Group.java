@@ -19,6 +19,6 @@ public class Group {
     private int id;
     @Column(name="name")
     private String name;
-//    @OneToMany(mappedBy="group")
-//    private List<Schedule> scheduleList;
+    @OneToMany(mappedBy="group")
+    private List<Schedule> scheduleList;
 }

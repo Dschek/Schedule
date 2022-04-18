@@ -21,18 +21,24 @@
             <div class="heading">
                 <h2>РАСПИСАНИЕ ЗАНЯТИЙ<br/></h2>
             </div>
-            <form><label class="form-label" for="email">Группа или имя преподавателя:<br/></label>
-                <div class="mb-3"><input class="form-control" type="email" id="email"/></div>
-                <div class="mb-3"></div>
+            <form action="/schedule">
+                <label class="form-label" for="query">Группа или имя преподавателя:<br/></label>
+                <div class="mb-3">
+                    <input class="form-control" type="text" id="query" name="query"/>
+                </div>
                 <div class="mb-3">
                     <div class="row">
-                        <div class="col"><button class="btn btn-primary d-block w-100" type="submit">Поиск</button></div>
+                        <div class="col">
+                            <button class="btn btn-primary d-block w-100" type="submit">
+                                Поиск
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
     </section>
 </main>
-<header th:insert="blocks/footer"/>
+<footer class="page-footer" th:insert="blocks/footer"/>
 </body>
 </html>
