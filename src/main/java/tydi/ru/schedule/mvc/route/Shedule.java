@@ -13,6 +13,7 @@ import tydi.ru.schedule.db.service.TeacherService;
 import tydi.ru.schedule.mvc.converter.ScheduleConverter;
 import tydi.ru.schedule.mvc.model.response.ScheduleDayResponse;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -25,15 +26,26 @@ public class Shedule {
 
     @GetMapping("")
     public String getSchedulePage(@RequestParam String query, Model model){
-        if(StringUtils.isEmpty(query))
+        List<ScheduleDayResponse> scheduleDayResponses = getScheduleByTeacherOrGroupName(query);
+        if(scheduleDayResponses == null)
             return "index";
-        List<Schedule> schedules = groupService.findScheduleByGroup(query);
-        if(schedules == null)
-            schedules = teacherService.findScheduleByTeacherName(query);
-        if(schedules == null)
-            return "index";
-        List<ScheduleDayResponse> scheduleDayResponses = ScheduleConverter.toScheduleDayResponse(schedules);
         model.addAttribute(scheduleDayResponses);
         return "schedule";
+    }
+    @GetMapping("/api")
+    public List<ScheduleDayResponse> getSchedule(@RequestParam String query, Model model){
+        List<ScheduleDayResponse> scheduleDayResponses = getScheduleByTeacherOrGroupName(query);
+        if(scheduleDayResponses == null)
+            return new ArrayList<>();
+        return scheduleDayResponses;
+    }
+
+    private List<ScheduleDayResponse> getScheduleByTeacherOrGroupName(String name){
+        if(StringUtils.isEmpty(name))
+            return null;
+        List<Schedule> schedules = groupService.findScheduleByGroup(name);
+        if(schedules == null)
+            schedules = teacherService.findScheduleByTeacherName(name);
+        return ScheduleConverter.toScheduleDayResponse(schedules);
     }
 }

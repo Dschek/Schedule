@@ -15,7 +15,9 @@ public class ScheduleConverter {
     public static final Logger LOG = LoggerFactory.getLogger(SubjectService.class);
 
     public static List<ScheduleDayResponse> toScheduleDayResponse(List<Schedule> schedule) {
-            List<ScheduleDayResponse> result = new ArrayList<>(12);
+        if(schedule == null)
+            return null;
+        List<ScheduleDayResponse> result = new ArrayList<>(12);
         try {
             List<ScheduleResponse> schedules = new ArrayList<>(6);
             int index = 0;
