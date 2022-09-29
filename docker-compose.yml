@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: schedule
+    image: "docker.pkg.github.com/dschek/schedule/schedule:latest"
+    ports:
+      - "8180:8080"
+    networks:
+      - schedule
+      - mysql
+networks:
+  schedule: {}
+  mysql:
+    external: true
