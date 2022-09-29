@@ -34,4 +34,3 @@ jobs:
       run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p ${{secrets.GITHUB_TOKEN}}
     - name: Publish image
       run: docker push "${{ steps.global_env.outputs.DOCKERHUB_IMAGE_NAME }}"
-
